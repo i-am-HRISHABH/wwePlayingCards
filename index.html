@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>wweCARDS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="windowContainer">
+      <div class="navbar">
+        <img src="./images/wwelogo.jpg" alt="wwe_logo" style="height: 50px" />
+        <div class="shuffle">
+          <button id="shuffle-button">shuffle</button>
+        </div>
+      </div>
+      <div class="mainContainer">
+        <div class="userSection">
+          <div class="card">
+            <div
+              class="cardStack1 cardlook"
+              style="
+                background: url(./images/tribalChief.jpg);
+                background-size: cover;
+              "
+            >
+              <button id="rank">
+                RANK
+                <span class="mainAttribute">#1</span>
+              </button>
+              <button id="height">
+                HEIGHT
+                <span class="mainAttribute">6.3</span>
+                ft
+              </button>
+              <button id="weight">
+                WEIGHT
+                <span class="mainAttribute">270</span>
+                lbs
+              </button>
+              <button id="experience">
+                EXPERIENCE
+                <span class="mainAttribute">6</span>
+              </button>
+              <button id="fight">
+                FIGHT
+                <span class="mainAttribute">203</span>
+              </button>
+            </div>
+            <div class="cardStack2"></div>
+            <div class="cardStack3"></div>
+          </div>
+          <div class="shuffle">
+            <button id="shuffle-button">shuffle</button>
+          </div>
+        </div>
+        <div class="resultSection">
+          <div class="userCall">?</div>
+          <div class="vs">vs</div>
+          <div class="compCall">?</div>
+          <div class="check">Check</div>
+          <div class="go">Go</div>
+        </div>
+        <div class="computerSection">
+          <div class="cardC">
+            <div class="cardStack1C cardLook"></div>
+            <div class="cardStack2C"></div>
+            <div class="cardStack3C"></div>
+            <div class="cardStack4C"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>

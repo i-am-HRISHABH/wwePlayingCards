@@ -1,0 +1,303 @@
+:root {
+  --black: #141516;
+  --darkgrey: #222222;
+  --lightgrey: #aaaaaa;
+  --red: #d0021b;
+  --blue1: #3b30fe;
+  --blue2: #2c24d9;
+  --blue3: #2c14cc;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.windowContainer {
+  background: var(--darkgrey);
+  height: 100vh;
+  width: 100vw;
+}
+.navbar {
+  background: black;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  /* padding: 1em 0; */
+  align-items: center;
+  /* justify-content: space-between; */
+}
+
+.mainContainer {
+  /* background-color: var(--red); */
+  display: flex;
+  padding: 0 2em;
+  height: 90%;
+}
+
+.userSection {
+  flex: 1;
+  /* background: var(--blue1); */
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding-top: 2em;
+}
+
+.shuffle {
+  margin-left: 1em;
+  /* background: rgba(255, 255, 255, 0.158); */
+  /* padding: 1em; */
+}
+
+#shuffle-button {
+  background: var(--red);
+  color: white;
+  padding: 1em;
+  border-radius: 0.5em;
+  cursor: pointer;
+  border: none;
+}
+
+.card {
+  height: 60%;
+  width: 58%;
+  /* background: pink; */
+  position: relative;
+}
+
+.cardStack1 {
+  height: 95%;
+  width: 100%;
+  /* background: url(./images/tribalChief.jpg); */
+  background-size: cover;
+  /* border: 4px solid rgb(249, 249, 115); */
+  position: absolute;
+  left: -1em;
+  top: 2em;
+  z-index: 2;
+  border-radius: 1em;
+}
+
+.cardStack1 button {
+  height: 4em;
+  width: 15em;
+  border-radius: 1em;
+  background: rgba(255, 255, 255, 0.185);
+  backdrop-filter: blur(1px);
+  color: white;
+  position: absolute;
+  border: none;
+  right: -12.5em;
+  cursor: pointer;
+}
+.cardStack1 button:hover {
+  width: 16em;
+  color: black;
+  /* background: none; */
+  height: 4.5em;
+  right: -12.5em;
+  background: linear-gradient(rgb(32, 194, 7), rgb(90, 255, 2));
+  backdrop-filter: blur(1px);
+  /* content: "rank #1"; */
+  /* border: 2px solid white; */
+}
+
+.mainAttribute {
+  font-weight: bold;
+  color: var(--black);
+  font-size: 1.5em;
+}
+
+#rank {
+  top: 2%;
+}
+#height {
+  top: 22%;
+}
+#weight {
+  top: 42%;
+}
+#experience {
+  top: 62%;
+}
+#fight {
+  top: 82%;
+}
+
+.cardStack2 {
+  height: 90%;
+  width: 100%;
+  background: #4e4c4c;
+  position: absolute;
+  left: -2.5em;
+  top: 4.5em;
+  z-index: 1;
+  border-radius: 1em;
+}
+
+.cardStack3 {
+  height: 85%;
+  width: 100%;
+  background: #303030;
+  position: absolute;
+  left: -3.5em;
+  top: 7em;
+  border-radius: 1em;
+}
+
+.resultSection {
+  flex: 1;
+  /* background: var(--lightgrey); */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.userCall {
+  /* background: var(--red); */
+  text-align: center;
+  width: 25%;
+  height: 20%;
+  border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 6px solid var(--lightgrey);
+  color: var(--lightgrey);
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.vs {
+  /* background: var(--black); */
+  color: var(--lightgrey);
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+  padding: 6px 3px;
+}
+.compCall {
+  /* background: var(--blue3); */
+  text-align: center;
+  width: 25%;
+  height: 20%;
+  /* border: 9px solid var(--black); */
+  border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 6px solid var(--lightgrey);
+  color: var(--lightgrey);
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.go {
+  color: var(--red);
+  margin-top: 0.5em;
+  border: 4px solid var(--red);
+  font-size: 1.5em;
+  padding: 0.5em;
+  width: 4em;
+  border-radius: 4em;
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+}
+.go:hover {
+  color: var(--darkgrey);
+  background: var(--red);
+  border: none;
+  width: 5em;
+  height: 1.5em;
+}
+
+.check {
+  color: var(--blue1);
+  margin-top: 2em;
+  border: 4px solid var(--blue1);
+  font-size: 1.5em;
+  padding: 0.5em;
+  width: 4em;
+  border-radius: 4em;
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+}
+.check:hover {
+  color: var(--darkgrey);
+  background: var(--blue1);
+  border: none;
+  width: 5em;
+  height: 1.5em;
+}
+.computerSection {
+  flex: 1;
+  /* background: var(--blue3); */
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding-top: 2em;
+}
+
+.cardC {
+  height: 60%;
+  width: 58%;
+  /* background: pink; */
+  position: relative;
+}
+
+.cardStack1C {
+  height: 95%;
+  width: 100%;
+  background: white;
+  position: absolute;
+  right: -1em;
+  top: 2em;
+  z-index: 2;
+  border-radius: 1em;
+  background: url("./images/rey.jpg");
+  background-size: cover;
+}
+
+.cardStack2C {
+  height: 90%;
+  width: 100%;
+  background: #4e4c4c;
+  position: absolute;
+  right: -2.5em;
+  top: 4.5em;
+  z-index: 1;
+  border-radius: 1em;
+}
+
+.cardStack3C {
+  height: 85%;
+  width: 100%;
+  background: #303030;
+  position: absolute;
+  right: -3.5em;
+  top: 7em;
+  border-radius: 1em;
+}
+
+.cardStack4C {
+  height: 95%;
+  width: 100%;
+  /* background-color: black; */
+  background: url("./images/wwelogo.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  position: absolute;
+  right: -1em;
+  top: 2em;
+  border-radius: 1em;
+  z-index: 3;
+}
+
+.revealCard {
+  display: none;
+}
