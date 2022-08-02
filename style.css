@@ -148,6 +148,38 @@ body {
   border-radius: 1em;
 }
 
+.scoreSection {
+  margin-top: 7em;
+  /* background: var(--lightgrey); */
+  width: 50%;
+  display: flex;
+}
+
+.score {
+  padding-right: 0.5em;
+  background: var(--blue3);
+  color: white;
+  width: 50%;
+  text-align: end;
+  border-radius: 2em 0 0 2em;
+}
+.cardLeft {
+  margin-left: 0.5em;
+  padding-left: 0.5em;
+  background: var(--red);
+  color: white;
+  width: 50%;
+  border-radius: 0 2em 2em 0;
+}
+.title {
+  font-size: 1.2em;
+}
+
+.value {
+  font-size: 3em;
+  padding: 0 0.2em;
+}
+
 .resultSection {
   flex: 1;
   /* background: var(--lightgrey); */

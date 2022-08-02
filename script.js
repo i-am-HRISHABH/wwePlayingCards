@@ -14,6 +14,10 @@ const compCallSection = document.querySelector(".compCall");
 const gobtn = document.querySelector(".go");
 const hidingCard = document.querySelector(".cardStack4C");
 const checkbtn = document.querySelector(".check");
+const userScore = document.querySelector("#userScore");
+const userCardLeft = document.querySelector("#userCard");
+const compScore = document.querySelector("#compScore");
+const compCardLeft = document.querySelector("#compCard");
 
 const rank = [
   1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
@@ -57,22 +61,19 @@ const images = [
   "./images/miz.jpg",
 ];
 
-let user = [];
-let computer = [];
+var userPoint = 0; //users points
+var compPoint = 0; // computers points
+let user = []; // users card stack
+let computer = []; // computers card stack
 const cards = [
   1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
-];
-let i = 20;
+]; //ranks duplicate array used to ditribute cards.
+let i = 20; //iterable used in distribute function.
 
-var myCard = 1;
+var myCard = 1; //users to card
 var compCallValue;
 var userCalValue;
-var compCard = 3;
-
-function rankClicked() {
-  userCallSection.innerHTML = `${myCard}`;
-  compCallValue = `${compCard}`;
-}
+var compCard = 3; //computers top card
 
 //function to check result.
 function CheckResult() {
@@ -88,8 +89,10 @@ function CheckResult() {
       "compValue: " + compCallValue + "and it's type: " + typeof compCallValue
     );
     if (userCalValue > compCallValue) {
+      userPoint++;
       console.log("you win");
     } else if (userCalValue < compCallValue) {
+      compPoint++;
       console.log("You loose");
     } else {
       console.log("Clash bitch");
@@ -99,11 +102,18 @@ function CheckResult() {
     compCard--;
     setFrontCard(user[myCard]);
     setFrontCardComputer(computer[compCard]);
+    //set score and card left value
+    userScore.innerHTML = userPoint;
+    userCardLeft.innerHTML = myCard;
+    compScore.innerHTML = compPoint;
+    compCardLeft.innerHTML = compCard;
     //setting call values to default
     userCallSection.innerHTML = "?";
     compCallSection.innerHTML = "?";
     compCallValue = undefined;
     userCalValue = undefined;
+    //hide go button
+    gobtn.classList.add("revealCard");
   } else {
     alert("Enter your Attribute call first!");
   }
@@ -133,6 +143,7 @@ function revealComputer() {
     compCallSection.innerHTML =
       compCallValue < 0 ? `${-1 * compCallValue}` : compCallValue;
     hidingCard.classList.add("revealCard");
+    gobtn.classList.remove("revealCard");
   } else {
     alert(
       "No cheating allowed! please enter you bid before revealing the opponent."
@@ -158,6 +169,12 @@ function distribute() {
   compCard = 9;
   setFrontCard(user[myCard]);
   setFrontCardComputer(computer[compCard]);
+  //set score and cardsleft values
+  userScore.innerHTML = userPoint;
+  userCardLeft.innerHTML = myCard;
+  compScore.innerHTML = compPoint;
+  compCardLeft.innerHTML = compCard;
+  userScore;
   console.log(user);
   console.log(computer);
 }
@@ -180,31 +197,41 @@ shufflebtn.addEventListener("click", distribute);
 
 //on the spot functions to get call value and set them on button clicks.
 rankbtn.addEventListener("click", function () {
-  userCallSection.innerHTML = `${rank[user[myCard] - 1]}`;
-  userCalValue = `${rank[user[myCard] - 1]}`;
-  userCalValue = -1 * Number(userCalValue);
-  compCallValue = `${rank[computer[compCard] - 1]}`;
-  compCallValue = -1 * Number(compCallValue);
+  if (userCalValue == undefined) {
+    userCallSection.innerHTML = `${rank[user[myCard] - 1]}`;
+    userCalValue = `${rank[user[myCard] - 1]}`;
+    userCalValue = -1 * Number(userCalValue);
+    compCallValue = `${rank[computer[compCard] - 1]}`;
+    compCallValue = -1 * Number(compCallValue);
+  }
 });
 heightbtn.addEventListener("click", function () {
-  userCallSection.innerHTML = `${height[user[myCard] - 1]}`;
-  userCalValue = `${height[user[myCard] - 1]}`;
-  compCallValue = `${height[computer[compCard] - 1]}`;
+  if (userCalValue == undefined) {
+    userCallSection.innerHTML = `${height[user[myCard] - 1]}`;
+    userCalValue = `${height[user[myCard] - 1]}`;
+    compCallValue = `${height[computer[compCard] - 1]}`;
+  }
 });
 weightbtn.addEventListener("click", function () {
-  userCallSection.innerHTML = `${weight[user[myCard] - 1]}`;
-  userCalValue = `${weight[user[myCard] - 1]}`;
-  compCallValue = `${weight[computer[compCard] - 1]}`;
+  if (userCalValue == undefined) {
+    userCallSection.innerHTML = `${weight[user[myCard] - 1]}`;
+    userCalValue = `${weight[user[myCard] - 1]}`;
+    compCallValue = `${weight[computer[compCard] - 1]}`;
+  }
 });
 experiencebtn.addEventListener("click", function () {
-  userCallSection.innerHTML = `${experience[user[myCard] - 1]}`;
-  userCalValue = `${experience[user[myCard] - 1]}`;
-  compCallValue = `${experience[computer[compCard] - 1]}`;
+  if (userCalValue == undefined) {
+    userCallSection.innerHTML = `${experience[user[myCard] - 1]}`;
+    userCalValue = `${experience[user[myCard] - 1]}`;
+    compCallValue = `${experience[computer[compCard] - 1]}`;
+  }
 });
 fightbtn.addEventListener("click", function () {
-  userCallSection.innerHTML = `${fight[user[myCard] - 1]}`;
-  userCalValue = `${fight[user[myCard] - 1]}`;
-  compCallValue = `${fight[computer[compCard] - 1]}`;
+  if (userCalValue == undefined) {
+    userCallSection.innerHTML = `${fight[user[myCard] - 1]}`;
+    userCalValue = `${fight[user[myCard] - 1]}`;
+    compCallValue = `${fight[computer[compCard] - 1]}`;
+  }
 });
 //adding checkResult function to go button
 gobtn.addEventListener("click", function () {
