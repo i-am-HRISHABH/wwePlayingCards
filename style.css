@@ -18,13 +18,55 @@ body {
   background: var(--darkgrey);
   height: 100vh;
   width: 100vw;
+  position: relative;
 }
+
+.resultWindow {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.348);
+  background-size: contain;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.resultContent {
+  background: white;
+  background-size: contain;
+  text-align: center;
+  width: 60%;
+  height: 40%;
+  border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.resultWindow p {
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+#reset {
+  font-size: 1.1em;
+  width: 22%;
+  padding: 1em 1em;
+  border-radius: 1em;
+  cursor: pointer;
+  background: var(--red);
+  color: white;
+  font-weight: bold;
+}
+
 .navbar {
   background: black;
   width: 100%;
   text-align: center;
   display: flex;
-  /* padding: 1em 0; */
+  padding: 0.5em;
   align-items: center;
   /* justify-content: space-between; */
 }
@@ -59,6 +101,7 @@ body {
   border-radius: 0.5em;
   cursor: pointer;
   border: none;
+  font-weight: bold;
 }
 
 .card {
@@ -82,7 +125,7 @@ body {
 }
 
 .cardStack1 button {
-  height: 4em;
+  height: 3.5em;
   width: 15em;
   border-radius: 1em;
   background: rgba(255, 255, 255, 0.185);
@@ -97,7 +140,7 @@ body {
   width: 16em;
   color: black;
   /* background: none; */
-  height: 4.5em;
+  height: 3.5em;
   right: -12.5em;
   background: linear-gradient(rgb(32, 194, 7), rgb(90, 255, 2));
   backdrop-filter: blur(1px);
@@ -112,19 +155,22 @@ body {
 }
 
 #rank {
-  top: 2%;
+  top: 6%;
 }
 #height {
-  top: 22%;
+  top: 21%;
 }
 #weight {
-  top: 42%;
+  top: 36%;
 }
 #experience {
-  top: 62%;
+  top: 51%;
 }
 #fight {
-  top: 82%;
+  top: 66%;
+}
+#belts {
+  top: 81%;
 }
 
 .cardStack2 {
@@ -291,7 +337,7 @@ body {
   top: 2em;
   z-index: 2;
   border-radius: 1em;
-  background: url("./images/rey.jpg");
+  background: url("./images/wwelogo.jpg");
   background-size: cover;
 }
 
@@ -320,9 +366,9 @@ body {
   height: 95%;
   width: 100%;
   /* background-color: black; */
-  background: url("./images/wwelogo.jpg");
+  background: url("./images/question.jpg");
   background-size: 100% 100%;
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat; */
   position: absolute;
   right: -1em;
   top: 2em;

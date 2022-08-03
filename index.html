@@ -15,10 +15,19 @@
   </head>
   <body>
     <div class="windowContainer">
+      <div class="resultWindow revealCard">
+        <div class="resultContent">
+          <p>
+            You score <span id="endScore">09</span> points <br />
+            Congatulation!!
+          </p>
+          <button id="reset">Press F5 to RESET</button>
+        </div>
+      </div>
       <div class="navbar">
         <img src="./images/wwelogo.jpg" alt="wwe_logo" style="height: 50px" />
         <div class="shuffle">
-          <button id="shuffle-button">shuffle</button>
+          <button id="shuffle-button">START</button>
         </div>
       </div>
       <div class="mainContainer">
@@ -27,31 +36,35 @@
             <div
               class="cardStack1 cardlook"
               style="
-                background: url(./images/tribalChief.jpg);
+                background: url(./images/wwelogo.jpg);
                 background-size: cover;
               "
             >
               <button id="rank">
                 RANK
-                <span class="mainAttribute">#1</span>
+                <span class="mainAttribute">#?</span>
               </button>
               <button id="height">
                 HEIGHT
-                <span class="mainAttribute">6.3</span>
-                ft
+                <span class="mainAttribute">?</span>
+                cm
               </button>
               <button id="weight">
                 WEIGHT
-                <span class="mainAttribute">270</span>
-                lbs
+                <span class="mainAttribute">?</span>
+                kg
               </button>
               <button id="experience">
                 EXPERIENCE
-                <span class="mainAttribute">6</span>
+                <span class="mainAttribute">?</span>
               </button>
               <button id="fight">
                 FIGHT
-                <span class="mainAttribute">203</span>
+                <span class="mainAttribute">?</span>
+              </button>
+              <button id="belts">
+                BELTS
+                <span class="mainAttribute">?</span>
               </button>
             </div>
             <div class="cardStack2"></div>
@@ -80,7 +93,7 @@
             <div class="cardStack1C cardLook"></div>
             <div class="cardStack2C"></div>
             <div class="cardStack3C"></div>
-            <div class="cardStack4C"></div>
+            <div class="cardStack4C revealCard"></div>
           </div>
           <div class="scoreSection">
             <div class="score">
