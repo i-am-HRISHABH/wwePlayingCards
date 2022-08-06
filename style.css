@@ -194,8 +194,17 @@ body {
   border-radius: 1em;
 }
 
+.name {
+  margin-top: 2.5em;
+  margin-right: 1.8em;
+  color: var(--lightgrey);
+  font-size: 1.5em;
+  /* background: yellow; */
+}
+
 .scoreSection {
-  margin-top: 7em;
+  margin: 1em 0;
+
   /* background: var(--lightgrey); */
   width: 50%;
   display: flex;
@@ -374,6 +383,13 @@ body {
   top: 2em;
   border-radius: 1em;
   z-index: 3;
+}
+.cname {
+  margin-top: 2.5em;
+  margin-left: 2.3em;
+  color: var(--lightgrey);
+  font-size: 1.5em;
+  /* background: yellow; */
 }
 
 .revealCard {

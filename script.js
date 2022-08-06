@@ -6,6 +6,8 @@ const weightbtn = document.querySelector("#weight");
 const experiencebtn = document.querySelector("#experience");
 const fightbtn = document.querySelector("#fight");
 const beltbtn = document.querySelector("#belts");
+const wrestlername = document.querySelector(".name");
+const cwrestlername = document.querySelector(".cname");
 const wrestlerimage = document.querySelector(".cardStack1");
 const shufflebtn = document.querySelector("#shuffle-button");
 const wrestlerdetail = document.querySelectorAll(".mainAttribute");
@@ -283,7 +285,148 @@ const wrestler = [
     image: "./images/kevinowens.jpg",
     experience: 8,
   },
+  {
+    name: "Zalina Vega",
+    rank: 27,
+    height: 154,
+    weight: 50,
+    belts: 1,
+    fight: 128,
+    image: "./images/zelina.jpg",
+    experience: 6,
+  },
+  {
+    name: "Nikki Bella",
+    rank: 28,
+    height: 168,
+    weight: 57,
+    belts: 2,
+    fight: 600,
+    image: "./images/nikkibella.jpg",
+    experience: 11,
+  },
+  {
+    name: "Shawn Michelle",
+    rank: 29,
+    height: 185,
+    weight: 98,
+    belts: 14,
+    fight: 1913,
+    image: "./images/shawn.jpg",
+    experience: 21,
+  },
+  {
+    name: "shinsuke Nakamura",
+    rank: 30,
+    height: 188,
+    weight: 100,
+    belts: 14,
+    fight: 7,
+    image: "./images/nakamura.jpg",
+    experience: 7,
+  },
+  {
+    name: "Batista",
+    rank: 31,
+    height: 194,
+    weight: 128,
+    belts: 10,
+    fight: 979,
+    image: "./images/batista.jpg",
+    experience: 12,
+  },
+  {
+    name: "Alexa Bliss",
+    rank: 32,
+    height: 155,
+    weight: 47,
+    belts: 8,
+    fight: 617,
+    image: "./images/alexabliss.jpg",
+    experience: 10,
+  },
+  {
+    name: "Beth Phoenix",
+    rank: 33,
+    height: 171,
+    weight: 70,
+    belts: 4,
+    fight: 667,
+    image: "./images/bethphoenix.jpg",
+    experience: 11,
+  },
+  {
+    name: "Goldberg",
+    rank: 34,
+    height: 193,
+    weight: 128,
+    belts: 5,
+    fight: 64,
+    image: "./images/goldberg.png",
+    experience: 8,
+  },
+  {
+    name: "Matt riddle",
+    rank: 35,
+    height: 188,
+    weight: 98,
+    belts: 4,
+    fight: 434,
+    image: "./images/riddle.jpg",
+    experience: 5,
+  },
+  {
+    name: "Stone cold",
+    rank: 36,
+    height: 188,
+    weight: 116,
+    belts: 12,
+    fight: 755,
+    image: "./images/stonecold.jpg",
+    experience: 10,
+  },
+  {
+    name: "Becky Lynch",
+    rank: 37,
+    height: 168,
+    weight: 59,
+    belts: 6,
+    fight: 859,
+    image: "./images/becky.jpg",
+    experience: 10,
+  },
+  {
+    name: "Tamina Snuka",
+    rank: 38,
+    height: 175,
+    weight: 78,
+    belts: 2,
+    fight: 626,
+    image: "./images/tamina.jpg",
+    experience: 13,
+  },
+  {
+    name: "Jimmy uso",
+    rank: 39,
+    height: 188,
+    weight: 108,
+    belts: 8,
+    fight: 1381,
+    image: "./images/jimmy.jpg",
+    experience: 13,
+  },
+  {
+    name: "Jey uso",
+    rank: 40,
+    height: 187,
+    weight: 107,
+    belts: 8,
+    fight: 1355,
+    image: "./images/jay.jfif",
+    experience: 13,
+  },
 ];
+
 var userPoint = 0; //users points
 var compPoint = 0; // computers points
 let user = []; // users card stack
@@ -292,6 +435,15 @@ var myCard = 0; //users top card
 var compCallValue;
 var userCalValue;
 var compCard = 0; //computers top card
+const wrestleManiaSong = new Audio("./sounds/WrittenInTheStars.mp3");
+const revealsound = new Audio("./sounds/reveal.wav");
+const selectSound = new Audio("./sounds/select.wav");
+const WWEbellSound = new Audio("./sounds/WWEBell.mp3");
+
+const hoverSound = new Audio("./sounds/attributeHover.wav");
+const playHoverSound = () => {
+  hoverSound.play();
+};
 
 //function to check game is over and diplay result screen
 const GameOver = () => {
@@ -302,6 +454,7 @@ const GameOver = () => {
 //function to check result.
 function CheckResult() {
   if (userCalValue) {
+    WWEbellSound.play();
     // compCallSection.innerHTML = `${compCallValue}`;
     compCallValue = Number(compCallValue);
     userCalValue = Number(userCalValue);
@@ -337,6 +490,7 @@ function CheckResult() {
       setFrontCardComputer(computer[compCard]);
     }
     //setting call values to default
+    cwrestlername.innerHTML = "?";
     userCallSection.innerHTML = "?";
     compCallSection.innerHTML = "?";
     compCallValue = undefined;
@@ -351,6 +505,7 @@ function CheckResult() {
 //setting the user top card.
 function setFrontCard(idx) {
   idx--;
+  wrestlername.innerHTML = `${wrestler[idx].name}`;
   rankbtn.innerHTML = `RANK<span class="mainAttribute"> #${wrestler[idx].rank}</span>`;
   heightbtn.innerHTML = `HEIGHT <span class="mainAttribute">${wrestler[idx].height}</span> cm`;
   weightbtn.innerHTML = `WEIGHT <span class="mainAttribute"> ${wrestler[idx].weight}</span> kg`;
@@ -370,6 +525,9 @@ function setFrontCardComputer(idx) {
 //tooggle the hideCard for computer
 function revealComputer() {
   if (userCalValue) {
+    selectSound.play();
+    revealsound.play();
+    cwrestlername.innerHTML = `${wrestler[computer[compCard] - 1].name}`;
     compCallSection.innerHTML =
       compCallValue < 0 ? `${-1 * compCallValue}` : compCallValue;
     hidingCard.classList.add("revealCard");
@@ -381,10 +539,10 @@ function revealComputer() {
   }
 }
 
-let i = 26; //iterable used in distribute function.
+let i = 40; //iterable used in distribute function.
 var cards = [
   1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22,
-  23, 24, 25, 26,
+  23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
 ]; //ranks duplicate array used to ditribute cards.
 function distribute() {
   while (i > 0) {
@@ -400,8 +558,8 @@ function distribute() {
     cards.pop();
     i--;
   }
-  myCard = 12;
-  compCard = 12;
+  myCard = 19;
+  compCard = 19;
   setFrontCard(user[myCard]);
   setFrontCardComputer(computer[compCard]);
   //set score and cardsleft values
@@ -415,6 +573,7 @@ function distribute() {
 }
 
 shufflebtn.addEventListener("click", function () {
+  // wrestleManiaSong.play();
   distribute();
   shufflebtn.classList.add("revealCard");
 });
@@ -422,6 +581,7 @@ shufflebtn.addEventListener("click", function () {
 //on the spot functions to get call value and set them on button clicks.
 rankbtn.addEventListener("click", function () {
   if (userCalValue == undefined) {
+    selectSound.play();
     userCallSection.innerHTML = `${wrestler[user[myCard] - 1].rank}`;
     userCalValue = `${wrestler[user[myCard] - 1].rank}`;
     userCalValue = -1 * Number(userCalValue);
@@ -431,6 +591,7 @@ rankbtn.addEventListener("click", function () {
 });
 heightbtn.addEventListener("click", function () {
   if (userCalValue == undefined) {
+    selectSound.play();
     userCallSection.innerHTML = `${wrestler[user[myCard] - 1].height}`;
     userCalValue = `${wrestler[user[myCard] - 1].height}`;
     compCallValue = `${wrestler[computer[compCard] - 1].height}`;
@@ -438,6 +599,7 @@ heightbtn.addEventListener("click", function () {
 });
 weightbtn.addEventListener("click", function () {
   if (userCalValue == undefined) {
+    selectSound.play();
     userCallSection.innerHTML = `${wrestler[user[myCard] - 1].weight}`;
     userCalValue = `${wrestler[user[myCard] - 1].weight}`;
     compCallValue = `${wrestler[computer[compCard] - 1].weight}`;
@@ -445,6 +607,7 @@ weightbtn.addEventListener("click", function () {
 });
 experiencebtn.addEventListener("click", function () {
   if (userCalValue == undefined) {
+    selectSound.play();
     userCallSection.innerHTML = `${wrestler[user[myCard] - 1].experience}`;
     userCalValue = `${wrestler[user[myCard] - 1].experience}`;
     compCallValue = `${wrestler[computer[compCard] - 1].experience}`;
@@ -452,6 +615,7 @@ experiencebtn.addEventListener("click", function () {
 });
 fightbtn.addEventListener("click", function () {
   if (userCalValue == undefined) {
+    selectSound.play();
     userCallSection.innerHTML = `${wrestler[user[myCard] - 1].fight}`;
     userCalValue = `${wrestler[user[myCard] - 1].fight}`;
     compCallValue = `${wrestler[computer[compCard] - 1].fight}`;
@@ -459,11 +623,13 @@ fightbtn.addEventListener("click", function () {
 });
 beltbtn.addEventListener("click", function () {
   if (userCalValue == undefined) {
+    selectSound.play();
     userCallSection.innerHTML = `${wrestler[user[myCard] - 1].belts}`;
     userCalValue = `${wrestler[user[myCard] - 1].belts}`;
     compCallValue = `${wrestler[computer[compCard] - 1].belts}`;
   }
 });
+// rankbtn.addEventListener("hover", playHoverSound);
 //adding checkResult function to go button
 gobtn.addEventListener("click", function () {
   CheckResult();
